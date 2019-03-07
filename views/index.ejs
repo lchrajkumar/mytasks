@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Tasks</title>
+	<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="public/styles.css">
+</head>
+<body>
+	<div class="container">
+		<!-- <div class="columns"> -->
+		<header class="navbar">
+			<section class="navbar-section">
+				<a href="#" class="btn btn-link">Home</a>
+				<a href="#" class="btn btn-link">Contact</a>
+			</section>
+			<section class="navbar-center">
+				<h1>My Tasks App</h1>
+			</section>
+			<section class="navbar-section">
+				<a href="https://twitter.com/lchrajkumar" class="btn btn-link">Twitter</a>
+    			<a href="https://github.com/lchrajkumar" class="btn btn-link">GitHub</a>
+			</section>
+		</header>
+		<!-- </div> -->
+		<div class="columns">
+			<div class="column col-sm-12">
+				<form action="/addtask" method="POST">
+					<div class="card">
+						<div>
+							
+						</div>
+						<div class="card-header">
+							<div class="card-title h5">Add New Task</div>
+						</div>
+						<div class="card-body">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon icon-plus"></i>
+								</span>
+								<input type="text" name="newtask" class="form-input" placeholder="Add New Task" />
+								<button class="btn btn-primary input-group-btn bg-success">Add Task</button>
+							</div>
+						</div>
+						<div class="divider"></div>
+						<div class="card-footer">
+							<div class="card-subtitle text-gray">Remove Completed Task</div>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon icon-minus"></i>
+								</span>
+								<% for( var i = 0; i < task.length; i++){ %>
+									<div class="chip">
+										<input type="checkbox" name="check" aria-label="Close" role="button" value="<%= task[i] %>" /> <%= task[i] %>
+									</div>	
+								<% } %>
+								<button formaction="/removetask" type="submit" class="btn btn-action s-circle"><i class="icon icon-delete"></i></button>
+							</div>	
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
